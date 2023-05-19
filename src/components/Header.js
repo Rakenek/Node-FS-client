@@ -1,4 +1,28 @@
+import { useSelector } from 'react-redux';
+
 const Header = () => {
+  const auth = useSelector((state) => state.auth);
+  console.log(auth);
+
+  const renderContent = () => {
+    switch (auth) {
+      case null:
+        return;
+      case false:
+        return (
+          <li>
+            <a href="/auth/google">Login with Google</a>
+          </li>
+        );
+      default:
+        return (
+          <li>
+            <a href="/api/logout">Logout</a>
+          </li>
+        );
+    }
+  };
+
   return (
     <nav>
       <div className="nav-wrapper">
@@ -6,9 +30,7 @@ const Header = () => {
           Emaily
         </a>
         <ul id="nav-mobile" className="right">
-          <li>
-            <a href="/">Login With Google</a>
-          </li>
+          {renderContent()}
         </ul>
       </div>
     </nav>

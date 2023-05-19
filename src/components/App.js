@@ -11,9 +11,7 @@ const Landing = () => <h2>Landing</h2>;
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log('/');
     dispatch(fetchUser());
-    console.log('/');
   }, []);
 
   return (
