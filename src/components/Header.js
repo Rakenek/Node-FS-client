@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import Payments from './Payments';
+
 const Header = () => {
   const auth = useSelector((state) => state.auth);
   console.log(auth);
